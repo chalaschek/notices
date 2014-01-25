@@ -20,8 +20,9 @@
     "test": "make test"
   },
   "dependencies": {
-    "async": "0.2.9",
-    "nconf"      : "0.6.9"
+    "async"       : "0.2.9",
+    "nconf"       : "0.6.9",
+    "redis"       : "0.10.0"
  },
  "devDependencies": {
       "jslint"        : "0.2.5",
