@@ -1,7 +1,7 @@
 notices
 =======
 
-Distributed event broadcasting and queueing for node [![Build Status](https://travis-ci.org/chalaschek/notices.png?branch=master)](https://travis-ci.org/chalaschek/notices)
+Distributed event broadcasting and queueing for node. [![Build Status](https://travis-ci.org/chalaschek/notices.png?branch=master)](https://travis-ci.org/chalaschek/notices)
 
 ## Overview
 
@@ -29,7 +29,7 @@ Distributed event broadcasting and queueing for node [![Build Status](https://tr
       // handler...
     });
     // broadcast a message
-    notices.publish("channel:obj", {data:'goes here'});
+    obj.publish("channel:obj", {data:'goes here'});
 
     // queueing quickstart
     // queue a message

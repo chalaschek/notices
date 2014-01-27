@@ -1,6 +1,6 @@
 {
   "name": "notices",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "description": "distributed event broadcasting and queueing for node",
   "keywords": ["notices", "events"],
