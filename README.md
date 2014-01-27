@@ -1,7 +1,7 @@
 notices
 =======
 
-[![Build Status](https://magnum.travis-ci.com/chalaschek/notices.png?token=GyZjnyzr4vfpqbuRo4tf&branch=master)](https://magnum.travis-ci.com/chalaschek/notices)
+[![Build Status](https://travis-ci.org/chalaschek/notices.png?branch=master)](https://travis-ci.org/chalaschek/notices)
 
 *notices* provides a simple mechanism for emitting distributed messages from objects in node. Events can be broadcast and consumed in a pub/sub like manner or emitted onto a queue.
 
