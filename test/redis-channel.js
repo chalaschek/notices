@@ -48,7 +48,7 @@ describe('Redis Pipe', function(){
   describe('Queue', function(){
     var payload;
     var testQueue = "_test_notices:test";
-    var _payload;
+    var message;
 
     before(function(){
       payload = { time: Date.now() };
@@ -83,8 +83,8 @@ describe('Redis Pipe', function(){
       redisPipe.dequeue(testQueue, function(err, p){
         should.not.exist(err);
         should.exist(p);
-        _payload = p;
-        _payload.time.should.eql(payload.time);
+        message = p;
+        message.payload.time.should.eql(payload.time);
         done();
       });
     });
@@ -99,7 +99,7 @@ describe('Redis Pipe', function(){
     });
 
     it('should ack the processing queue', function(done){
-      redisPipe.ack(testQueue, _payload, function(err){
+      redisPipe.ack(testQueue, message, function(err){
         should.not.exist(err);
         redisPipe._pub.llen(redisPipe._processingQueue(testQueue), function(err, cnt){
           should.not.exist(err);
