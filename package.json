@@ -1,8 +1,8 @@
 {
   "name": "notices",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
-  "description": "notices - distributed event broadcasting and queueing for node",
+  "description": "distributed event broadcasting and queueing for node",
   "keywords": ["notices", "events"],
   "author": "Chris Halaschek <chalaschek@gmail.com>",
   "main": "index",

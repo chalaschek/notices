@@ -1,7 +1,9 @@
 notices
 =======
 
-[![Build Status](https://travis-ci.org/chalaschek/notices.png?branch=master)](https://travis-ci.org/chalaschek/notices)
+Distributed event broadcasting and queueing for node [![Build Status](https://travis-ci.org/chalaschek/notices.png?branch=master)](https://travis-ci.org/chalaschek/notices)
+
+## Overview
 
 *notices* provides a simple mechanism for emitting distributed messages from objects in node. Events can be broadcast and consumed in a pub/sub like manner or emitted onto a queue.
 
@@ -48,9 +50,9 @@ notices
 
 
 
-## Pub/Sub
+## Broadcast
 
-The *notices* pub/sub framework extends objects with the ability to broadcast and comsume message in a pub/sub like manner.
+The *notices* broadcast framework extends objects with the ability to broadcast and comsume message in a pub/sub like manner.
 
 ### API
 
