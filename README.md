@@ -74,8 +74,7 @@ Coming soon.
 
 ## Contributors
 
-[Chris Halaschek](https://twitter.com/chalaschek)
-
+[Chris Halaschek](https://twitter.com/chalaschek)  
 [Bernardo Gomez Palacio Valdes](https://twitter.com/berngp)
 
 
