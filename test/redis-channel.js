@@ -48,7 +48,7 @@ describe('Redis Pipe', function(){
   describe('Queue', function(){
     var payload;
     var testQueue = "_test_notices:test";
-    var message;
+    var queueMessage;
 
     before(function(){
       payload = { time: Date.now() };
@@ -63,8 +63,9 @@ describe('Redis Pipe', function(){
     });
 
     it('should queue a payload', function(done){
-      redisPipe.queue(testQueue, payload, function(err){
+      redisPipe.queue(testQueue, payload, function(err, queueMessage){
         should.not.exist(err);
+        should.exist(queueMessage);
         done()
       });
     });
@@ -80,11 +81,11 @@ describe('Redis Pipe', function(){
 
 
     it('should dequeue a payload', function(done){
-      redisPipe.dequeue(testQueue, function(err, p){
+      redisPipe.dequeue(testQueue, function(err, _queueMessage){
         should.not.exist(err);
-        should.exist(p);
-        message = p;
-        message.payload.time.should.eql(payload.time);
+        should.exist(_queueMessage);
+        queueMessage = _queueMessage;
+        queueMessage.payload().time.should.eql(payload.time);
         done();
       });
     });
@@ -99,7 +100,7 @@ describe('Redis Pipe', function(){
     });
 
     it('should ack the processing queue', function(done){
-      redisPipe.ack(testQueue, message, function(err){
+      redisPipe.ack(queueMessage, function(err){
         should.not.exist(err);
         redisPipe._pub.llen(redisPipe._processingQueue(testQueue), function(err, cnt){
           should.not.exist(err);
@@ -112,12 +113,13 @@ describe('Redis Pipe', function(){
 
 
     it('should support auto-acking', function(done){
-      redisPipe.queue(testQueue, payload, function(err){
+      redisPipe.queue(testQueue, payload, function(err, queueMessage){
         should.not.exist(err);
+        should.exist(queueMessage);
 
-        redisPipe.dequeue(testQueue, {auto_ack: true}, function(err, _p){
+        redisPipe.dequeue(testQueue, {auto_ack: true}, function(err, queueMessage){
           should.not.exist(err)
-          should.exist(_p);
+          should.exist(queueMessage);
 
           redisPipe._pub.llen(redisPipe._processingQueue(testQueue), function(err, cnt){
             should.not.exist(err);
@@ -131,15 +133,18 @@ describe('Redis Pipe', function(){
 
 
     it('should support dequeing n payloads', function(done){
-      redisPipe.queue(testQueue, payload, function(err){
+      redisPipe.queue(testQueue, payload, function(err, queueMessage){
         should.not.exist(err);
-        redisPipe.queue(testQueue, payload, function(err){
-          should.not.exist(err);
+        should.exist(queueMessage);
 
-          redisPipe.dequeue(testQueue, {auto_ack: true, count: 2}, function(err, _p){
+        redisPipe.queue(testQueue, payload, function(err, queueMessage){
+          should.not.exist(err);
+          should.exist(queueMessage);
+
+          redisPipe.dequeue(testQueue, {auto_ack: true, count: 2}, function(err, queueMessages){
             should.not.exist(err)
-            should.exist(_p);
-            (_p instanceof Array).should.be.ok;
+            should.exist(queueMessages);
+            (queueMessages instanceof Array).should.be.ok;
             done();
           });
         });
