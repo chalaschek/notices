@@ -2,9 +2,9 @@
   "name": "notices",
   "version": "0.0.1",
   "private": false,
-  "description": "notices - distributed event channeling",
+  "description": "notices - distributed event broadcasting and queueing for node",
   "keywords": ["notices", "events"],
-  "author": "Chris Halaschek <chris.halaschek@voxa.com>",
+  "author": "Chris Halaschek <chalaschek@gmail.com>",
   "main": "index",
   "contributors": [
     { 
@@ -26,10 +26,7 @@
     "mongoose"    : "3.8.2"
  },
  "devDependencies": {
-      "jslint"        : "0.2.5",
-      "nodemon"       : "0.7.10",
       "mocha"         : "1.15.1",
-      "should"        : "2.1.1",
-      "node-uuid"     : "1.4.1"
+      "should"        : "2.1.1"
   }
 }
