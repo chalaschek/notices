@@ -28,3 +28,8 @@
 ==================
 
   * Changes require signature
+
+0.0.6 / 2014-02-14
+==================
+
+  * Unsubscribe method added

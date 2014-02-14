@@ -47,13 +47,9 @@ describe('Redis Pipe', function(){
           done();
       }
 
-      notices.subscribe('test:event', function(data){
-        doneCheck();
-      });
+      notices.subscribe('test:event', doneCheck);
 
-      notices.subscribe('test:event', function(data){
-        doneCheck();
-      });
+      notices.subscribe('test:event', doneCheck);
 
       notices.subscribe(':error', function(data){
         err = new Error("Invalid message");
@@ -63,6 +59,21 @@ describe('Redis Pipe', function(){
       notices.publish('test:event', {}, function(err){
         should.not.exist(err);
         doneCheck();
+      });
+    });
+
+    it('should unsubscribe handlers', function(done){
+      var d = function(){
+        false.shoud.not.be.ok;
+      }
+      notices.subscribe('test:unsub', d);
+
+      notices.unsubscribe('test:unsub', d);
+
+      notices.publish('test:unsub', {}, function(err){
+        setTimeout(function(){
+          done();
+        }, 500)
       });
     });
   });

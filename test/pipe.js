@@ -17,6 +17,10 @@ describe('Pipe', function(){
     it('should expose a subscribe method', function(){
       should.exist(pipe.subscribe);
     });
+
+    it('should expose a unsubscribe method', function(){
+      should.exist(pipe.unsubscribe);
+    });
   });
 
 
