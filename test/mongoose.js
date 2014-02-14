@@ -1,5 +1,5 @@
 var should      = require('should'),
-    notices     = require('../index').notices,
+    notices     = require('../index')(),
     mongoose    = require('mongoose');
 
 describe('Mongoose', function(){

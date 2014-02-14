@@ -22,3 +22,9 @@
 
   * Changed notices pipe to single pipe
   * Notify now adds queue methods
+
+
+0.0.5 / 2014-02-14
+==================
+
+  * Changes require signature

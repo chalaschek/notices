@@ -1,10 +1,15 @@
 var should      = require('should'),
     events      = require('events'),
-    notices     = require('../index').notices,
-    RedisPipe   = require('../index').RedisPipe;
+    notices     = require('../index')(),
+    RedisPipe   = require('../lib/redis-pipe');
 
 describe('Notices', function(){
+
   var pipe = new RedisPipe();
+
+  it('should default to a redis pipe', function(){
+    should.exist(notices._pipe);
+  });
 
   it('should set the pipe', function(){
     notices.setPipe(pipe);

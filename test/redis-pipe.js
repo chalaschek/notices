@@ -1,14 +1,13 @@
 var should            = require('should'),
     Pipe           = require('../lib/pipe'),
-    notices        = require('../index').notices,
-    RedisPipe      = require('../index').RedisPipe;
+    notices        = require('../index')(),
+    RedisPipe      = require('../lib/redis-pipe');
 
 describe('Redis Pipe', function(){
   var redisPipe;
 
   before(function(){
     redisPipe = new RedisPipe();
-    notices.setPipe(redisPipe);
   });
 
   after(function(){
