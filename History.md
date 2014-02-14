@@ -33,3 +33,9 @@
 ==================
 
   * Unsubscribe method added
+
+
+0.0.7 / 2014-02-14
+==================
+
+  * Handle null callback when queueing
