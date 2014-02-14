@@ -2,3 +2,23 @@
 ==================
 
   * Initial release
+
+
+0.0.2 / 2014-01-28
+==================
+
+  * Redis pipe added
+
+
+0.0.3 / 2014-02-01
+==================
+
+  * Documentation added
+
+
+
+0.0.4 / 2014-02-14
+==================
+
+  * Changed notices pipe to single pipe
+  * Notify now adds queue methods

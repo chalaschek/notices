@@ -1,1 +1,4 @@
-module.exports = require('./lib/notices');
+module.exports = {
+  notices: require('./lib/notices'),
+  RedisPipe: require('./lib/redis-pipe')
+}
