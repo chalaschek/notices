@@ -39,3 +39,8 @@
 ==================
 
   * Handle null callback when queueing
+
+0.0.8 / 2014-02-15
+==================
+
+  * Added namespace support

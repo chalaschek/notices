@@ -125,7 +125,7 @@ describe('Redis Pipe', function(){
     });
 
     it('should push the payload onto a processing queue (autoack off by default)', function(done){
-      redisPipe._pub.llen(redisPipe._processingQueue(testQueue), function(err, cnt){
+      redisPipe._pub.llen(redisPipe._processingQueue(queueMessage._queueName), function(err, cnt){
         should.not.exist(err);
         should.exist(cnt);
         cnt.should.eql(1);
@@ -136,7 +136,7 @@ describe('Redis Pipe', function(){
     it('should ack the processing queue', function(done){
       notices.ack(queueMessage, function(err){
         should.not.exist(err);
-        redisPipe._pub.llen(redisPipe._processingQueue(testQueue), function(err, cnt){
+        redisPipe._pub.llen(redisPipe._processingQueue(queueMessage._queueName), function(err, cnt){
           should.not.exist(err);
           should.exist(cnt);
           cnt.should.eql(0);
