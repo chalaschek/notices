@@ -20,6 +20,30 @@ describe('Notices', function(){
     notices.disconnect();
   })
 
+  describe("Namespaces", function(){
+    var _notices;
+
+    before(function(){
+      _notices = require('../index')({namespace: "test"});
+    });
+
+    it('should support channel namespaces', function(){
+      var q = _notices._queue("queue");
+      q.should.eql("notices.queue.test.queue");
+      var c = _notices._channel("queue");
+      c.should.eql("notices.channel.test.queue");
+    });
+
+
+    it('should support use namespace when queueing', function(){
+      _notices.queue("queue", {data: "here"}, function(err, message){
+        should.not.exist(err);
+        should.exist(message);
+        message._queueName.should.eql(notices.queue.test.queue);
+      })
+    });
+  });
+
   describe("Notify", function(){
     it('should notify an object', function(){
       should.exist(notices);

@@ -17,10 +17,7 @@ Distributed event broadcasting and queueing for node. [![Build Status](https://t
 ## Quickstart
 
 ```js
-    var notices     = require('notices').notices,
-        RedisPipe   = require('notices').RedisPipe;
-
-    notices.setPipe(new RedisPipe());
+    var notices     = require('notices')();
 
     // notify an object
     var obj = {};
