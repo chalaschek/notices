@@ -1,11 +1,15 @@
 {
   "name": "notices",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "private": false,
   "description": "distributed event broadcasting and queueing for node",
   "keywords": ["notices", "events"],
   "author": "Chris Halaschek <chalaschek@gmail.com>",
   "main": "index",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chalaschek/notices.git"
+  },
   "contributors": [
     { 
       "name": "Chris Halaschek",
