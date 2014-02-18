@@ -55,3 +55,8 @@
 ==================
 
   * requeue duration method added
+
+0.0.13 / 2014-02-18
+==================
+
+  * renamed requeue expired

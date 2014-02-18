@@ -237,7 +237,7 @@ describe('Redis Pipe', function(){
                 notices.queue(testQueue, payload, function(err, queueMessage){
                   notices.dequeue(testQueue, function(err, _message){
                     // trigger requeue
-                    notices.requeueDuration(testQueue, 50, function(err){
+                    notices.requeueExpired(testQueue, 50, function(err){
                       // check length of queue
                       notices.length(testQueue, function(err, len){
                         should.not.exist(err);
