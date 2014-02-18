@@ -44,3 +44,9 @@
 ==================
 
   * Added namespace support
+
+
+0.0.10 / 2014-02-18
+==================
+
+  * requeue method added

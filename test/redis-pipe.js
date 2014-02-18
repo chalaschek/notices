@@ -186,6 +186,45 @@ describe('Redis Pipe', function(){
     });
 
 
+    describe("Requeueing", function(){
+      var message;
+      notices.flushQueue(testQueue);
+      before(function(done){
+        notices.queue(testQueue, payload, function(err, queueMessage){
+          should.not.exist(err);
+          should.exist(queueMessage);
+          message = queueMessage;
+          notices.dequeue(testQueue, function(err, queueMessage){
+            should.not.exist(err);
+            done();
+          });
+        });
+      });
+
+      it('should requeue messages', function(done){
+
+        // requeue it!
+        notices.requeue(message, function(err){
+          should.not.exist(err);
+          notices.dequeue(testQueue, function(err, _message){
+            should.not.exist(err);
+            should.exist(_message);
+            done();
+          });
+        });
+      });
+
+
+      it('should remove only remove original message from processing queue', function(done){
+        notices._pipe._pub.llen(redisPipe._processingQueue(message._queueName), function(err, cnt){
+          should.not.exist(err);
+          cnt.should.eql(1);
+          done();
+        })
+      });
+    });
+
+
     describe('Blocking queue', function(){
       var options = { block: true }
       it('should block until a message is queued');

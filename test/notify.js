@@ -39,7 +39,7 @@ describe('Notices', function(){
       _notices.queue("queue", {data: "here"}, function(err, message){
         should.not.exist(err);
         should.exist(message);
-        message._queueName.should.eql(notices.queue.test.queue);
+        message._queueName.should.eql("notices.queue.test.queue");
       })
     });
   });
@@ -55,6 +55,7 @@ describe('Notices', function(){
       should.exist(obj.subscribe);
 
       should.exist(obj.queue);
+      should.exist(obj.requeue);
       should.exist(obj.dequeue);
       should.exist(obj.ack);
       should.exist(obj.length);
