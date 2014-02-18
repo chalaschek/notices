@@ -50,3 +50,8 @@
 ==================
 
   * requeue method added
+
+0.0.12 / 2014-02-18
+==================
+
+  * requeue duration method added

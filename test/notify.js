@@ -56,6 +56,7 @@ describe('Notices', function(){
 
       should.exist(obj.queue);
       should.exist(obj.requeue);
+      should.exist(obj.requeueDuration);
       should.exist(obj.dequeue);
       should.exist(obj.ack);
       should.exist(obj.length);

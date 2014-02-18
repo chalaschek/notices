@@ -33,6 +33,9 @@ describe('Pipe', function(){
       should.exist(pipe.requeue);
     });
 
+    it('should expose a requeue duration method', function(){
+      should.exist(pipe.requeueDuration);
+    });
 
     it('should expose a dequeue method', function(){
       should.exist(pipe.dequeue);
@@ -45,6 +48,7 @@ describe('Pipe', function(){
     it('should expose a length method', function(){
       should.exist(pipe.length);
     });
+
   });
 
 });

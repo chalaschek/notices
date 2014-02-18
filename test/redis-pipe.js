@@ -222,6 +222,40 @@ describe('Redis Pipe', function(){
           done();
         })
       });
+
+
+      it('should requeue messages past a specified duration', function(done){
+        notices.flushQueue(testQueue, function(err){
+          should.not.exist(err);
+          notices.queue(testQueue, payload, function(err, queueMessage){
+            should.not.exist(err);
+            notices.dequeue(testQueue, function(err, _message){
+              should.not.exist(err);
+              should.exist(_message);
+              setTimeout(function(){
+                // queue another message to ensure it only requeues one
+                notices.queue(testQueue, payload, function(err, queueMessage){
+                  notices.dequeue(testQueue, function(err, _message){
+                    // trigger requeue
+                    notices.requeueDuration(testQueue, 50, function(err){
+                      // check length of queue
+                      notices.length(testQueue, function(err, len){
+                        should.not.exist(err);
+                        len.should.eql(1);
+                        notices.dequeue(testQueue, function(err, _message){
+                          should.not.exist(err);
+                          should.exist(_message);
+                          done();
+                        });
+                      })
+                    });
+                  });
+                });
+              }, 100);
+            });
+          });
+        });
+      })
     });
 
 
