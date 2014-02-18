@@ -60,3 +60,8 @@
 ==================
 
   * renamed requeue expired
+
+0.0.14 / 2014-02-18
+==================
+
+  * using hiredis

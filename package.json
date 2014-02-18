@@ -1,6 +1,6 @@
 {
   "name": "notices",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "private": false,
   "description": "distributed event broadcasting and queueing for node",
   "keywords": ["notices", "events"],
@@ -27,6 +27,7 @@
     "async"       : "0.2.9",
     "nconf"       : "0.6.9",
     "redis"       : "0.10.0",
+    "hiredis"     : "0.1.16",
     "mongoose"    : "3.8.2"
  },
  "devDependencies": {
