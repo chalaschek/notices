@@ -65,3 +65,8 @@
 ==================
 
   * using hiredis
+
+0.0.15 / 2014-02-19
+==================
+
+  * updated requeueDuration method sig
