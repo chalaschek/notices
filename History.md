@@ -75,3 +75,8 @@
 ==================
 
   * length extended to take option in process flag
+
+0.0.17 / 2014-02-19
+==================
+
+  * dequeue with count greater than queue length no longer pushes empty messages
