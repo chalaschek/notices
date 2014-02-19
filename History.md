@@ -70,3 +70,8 @@
 ==================
 
   * updated requeueDuration method sig
+
+0.0.16 / 2014-02-19
+==================
+
+  * length extended to take option in process flag

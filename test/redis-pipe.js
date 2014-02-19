@@ -113,6 +113,16 @@ describe('Redis Pipe', function(){
       })
     });
 
+    it('should return the length of the processing queue', function(done){
+      notices.length(testQueue, true, function(err, cnt){
+        should.not.exist(err);
+        should.exist(cnt);
+        cnt.should.eql(0);
+        done();
+      })
+    });
+
+
 
     it('should dequeue a payload', function(done){
       notices.dequeue(testQueue, function(err, _queueMessage){
