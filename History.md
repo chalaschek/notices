@@ -80,3 +80,8 @@
 ==================
 
   * dequeue with count greater than queue length no longer pushes empty messages
+
+0.1.0 / 2014-02-26
+==================
+
+  * queue message payload now immutable to ensure acking

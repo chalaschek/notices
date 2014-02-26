@@ -155,6 +155,26 @@ describe('Redis Pipe', function(){
       });
     });
 
+    it('should ack the processing queue even if the message payload is changed', function(done){
+      notices.queue(testQueue, payload, function(err, _queueMessage){
+        notices.dequeue(testQueue, function(err, _queueMessage){
+          should.not.exist(err);
+          should.exist(_queueMessage);
+          var payload = _queueMessage.payload();
+          payload.changed = true;
+          notices.ack(_queueMessage, function(err){
+            should.not.exist(err);
+            redisPipe._pub.llen(redisPipe._processingQueue(_queueMessage._queueName), function(err, cnt){
+              should.not.exist(err);
+              should.exist(cnt);
+              cnt.should.eql(0);
+              done();
+            })
+          });
+        });
+      });
+    });
+
 
     it('should support auto-acking', function(done){
       notices.queue(testQueue, payload, function(err, queueMessage){
