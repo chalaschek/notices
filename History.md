@@ -85,3 +85,8 @@
 ==================
 
   * queue message payload now immutable to ensure acking
+
+0.2.0 / 2014-03-12
+==================
+
+  * notices method signatures refactored when notifying an object due to conflicts with latest mongoose lib

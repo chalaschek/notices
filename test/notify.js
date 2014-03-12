@@ -51,16 +51,16 @@ describe('Notices', function(){
       var obj = function(){}
 
       notices.notify(obj);
-      should.exist(obj.publish);
-      should.exist(obj.subscribe);
+      should.exist(obj.notifyPublish);
+      should.exist(obj.notifySubscribe);
 
-      should.exist(obj.queue);
-      should.exist(obj.requeue);
-      should.exist(obj.requeueExpired);
-      should.exist(obj.dequeue);
-      should.exist(obj.ack);
-      should.exist(obj.length);
-      should.exist(obj.flushQueue);
+      should.exist(obj.notifyQueue);
+      should.exist(obj.notifyRequeue);
+      should.exist(obj.notifyRequeueExpired);
+      should.exist(obj.notifyDequeue);
+      should.exist(obj.notifyAck);
+      should.exist(obj.notifyLength);
+      should.exist(obj.notifyFlushQueue);
     });
   });
 

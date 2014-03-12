@@ -29,13 +29,13 @@ Distributed event broadcasting and queueing for node. [![Build Status](https://t
       // handler...
     });
     // broadcast a message
-    obj.publish("channel:obj", {data:'goes here'});
+    obj.notifyPublish("channel:obj", {data:'goes here'});
 
     // queueing quickstart
     // queue a message
-    obj.queue("queue:worker1", {data:'goes here'});
+    obj.notifyQueue("queue:worker1", {data:'goes here'});
     // dequeue the message
-    obj.dequeue("queue:worker1", function(err, queueMessage){
+    obj.notifyDequeue("queue:worker1", function(err, queueMessage){
       // get the payloard
       var payload = queueMessage.payload();
 

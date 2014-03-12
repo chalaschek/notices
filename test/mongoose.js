@@ -11,13 +11,13 @@ describe('Mongoose', function(){
   });
 
   it('should notify statics', function(){
-    should.exist(schema.statics.publish);
-    should.exist(schema.statics.subscribe);
+    should.exist(schema.statics.notifyPublish);
+    should.exist(schema.statics.notifySubscribe);
   });
 
   it('should notify methods', function(){
-    should.exist(schema.methods.publish);
-    should.exist(schema.methods.subscribe);
+    should.exist(schema.methods.notifyPublish);
+    should.exist(schema.methods.notifySubscribe);
   });
 
 });
